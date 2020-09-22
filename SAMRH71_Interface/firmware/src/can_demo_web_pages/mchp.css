@@ -1,0 +1,301 @@
+body {
+	font-family: Verdana, Arial, sans-serif;
+	background: #5b5b5b;
+	margin: 0px auto;
+	padding: 0 0 20px 0;
+}
+
+#shadow-one {
+	width: 760px;
+	border: 1px solid #555;
+	border-top: 0;
+	margin: 0px auto;
+}
+#shadow-two {
+	border: 1px solid #4b4b4b;
+	border-top: 0;
+}
+#shadow-three {
+	border: 1px solid #444;
+	border-top: 0;
+}
+#shadow-four {
+	border: 1px solid #3a3a3a;
+	border-top: 0;
+}
+
+#page {
+	border: 1px solid #333;
+	background: #fff;
+	border-top: 0;
+	padding: 20px;
+	font-size: 10pt;
+}
+
+#page td {
+	font-size: 10pt;
+}
+
+#title {
+	background: #d72622;
+	padding: 4px;
+	font-weight: bold;
+	color: #fff;
+	margin-bottom: 15px;
+	height: 16px;
+}
+
+#title .right {
+	float: right;
+	width: 300px;
+	text-align: right;
+}
+
+#menu {
+	float: left;
+	width: 150px;
+	padding-right: 20px;
+}
+
+#menu a {
+	width: 140px;
+	display: block;
+	background: #d72622;
+	color: white;
+	padding: 8px;
+	font-weight: bold;
+	border-bottom: 1px solid #fff;
+	text-decoration: none;
+}
+
+#menu a:hover {
+	background: #c02f51;
+}
+
+#content {
+	width: 682px;
+	float: right;
+	padding-right: 10px;
+}
+
+#content a {
+	color: #c00;
+	text-decoration: none;
+}
+
+#content a:hover {
+	color: #d33;
+	text-decoration: underline;
+}
+
+#content h1 {
+	margin-top: 0px;
+}
+
+.spacer {
+	clear: both;
+}
+
+#footer {
+	font-size: 0.8em;
+	color: #666;
+	text-align: center;
+	margin: 10px 50px 0 50px;
+	padding-top: 10px;
+	border-top: 1px dotted #666;
+}
+
+.floating {
+	float: right;
+}
+
+#status {
+	width: 300px;
+	height: 150px;
+	padding: 10px;
+	margin: 10px 10px 10px 10px;
+	border: 1px dotted #666;
+	font-weight: bold;
+}
+
+#status p {
+	padding: 5px 0 5px 10px;
+	text-indent: -10px;
+	margin: 0;
+}
+
+#status .title {
+	margin: -20px 0px 0px 20px;
+	padding: 0px 14px 0px 14px;
+	background:#fff;
+	width: max-content;
+}
+
+#status .button {
+	font-size: 16pt;
+	padding-right: 15px;
+}
+
+#status .parameter {
+	display:inline-block;
+	width: 150px;
+}
+
+#status .motor_cmd {
+	padding: 0px 14px 0px 14px;
+}
+
+#status .motor_cmd a {
+	color: #ddd;
+	cursor: pointer;
+}
+
+#status .motor_cmd a:active {
+	color: #c00;
+	text-decoration: none;
+}
+
+#status .speed_up {
+	cursor: pointer;
+	background-image: url("upGray.gif");
+	width: 18px;
+	height: 18px;
+	display:inline-block;
+	margin-right: 18px;
+}
+
+#status .speed_up:active {
+	background-image: url("upRed.gif");
+}
+
+#status .speed_down {
+	cursor: pointer;
+	background-image: url("downGray.gif");
+	width: 18px;
+	height: 18px;
+	display:inline-block;
+}
+
+#status .speed_down:active {
+	background-image: url("downRed.gif");
+}
+
+#status .direction {
+	cursor: pointer;
+	background-image: url("invert.gif");
+	width: 20px;
+	height: 20px;
+	display:inline-block;
+}
+
+
+#status .data {
+	color: #ed1b2e;
+}
+
+#status .led {
+	background-image: url("led.gif");
+	width: 22px;
+	height: 11px;
+	display:inline-block;
+	cursor: pointer;
+}
+
+#status .title_cmd {
+	text-decoration: underline;
+	color: #4b858e;
+}
+
+.examplebox {
+	margin:10px 40px 10px 40px;
+	padding: 8px;
+	border: 1px dotted #333;
+	text-align:center;
+	background:#ddd;
+}
+
+.code {
+	font-family: Courier New, Courier, fixed-width, fixed;
+}
+
+.exercise {
+	background: #fe9;
+	padding: 5px;
+	margin-left: 10px;
+	border-left: 2px solid #eb3;
+}
+
+.error {
+	margin-left: 10px;
+	padding: 10px;
+	background: #fdd;
+	border-left: 2px solid #900;
+}
+
+#content h6 {
+	border-top: 1px dashed #333;
+	margin: 15px;
+	padding: 0px;
+	height: 1px;
+}
+
+.examplebox td {
+	text-align:left;
+	padding-right: 15px;
+}
+
+fieldset {
+	margin:10px 40px 10px 40px;
+	padding: 8px;
+	border: 1px dotted #333;
+	background:#ddd;
+}
+
+fieldset div {
+	padding: 2px 0px 2px 150px;
+}
+
+fieldset div label {
+	margin-left: -140px;
+	padding-top: 2px;
+	width: 135px;
+	font-weight: bold;
+	position: absolute;
+}
+
+fieldset input {
+	width: 250px;
+}
+
+fieldset input.sm {
+	width: auto;
+}
+
+fieldset textarea {
+	width: 250px;
+}
+
+.result
+{
+	margin: 10px 40px 10px 40px;
+	padding: 8px;
+	border: 1px solid #333;
+	text-align: center;
+	font-weight: bold;
+	background: #eee;
+}
+
+	.ok {
+		border-color: #6b6;
+		background: #efe;
+	}
+	
+	.fail {
+		border-color: #b66;
+		background: #fee;
+	}
+	
+	.unk {
+		border-color: #cc6;
+		background: #ffd;
+	}

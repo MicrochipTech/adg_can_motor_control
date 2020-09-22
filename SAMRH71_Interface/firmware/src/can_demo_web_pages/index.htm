@@ -1,0 +1,177 @@
+<!--#include file="header.htm" -->
+<div id="content">
+
+<h1>Welcome!</h1>
+
+<p>This site demonstrates the power, flexibility, and scalability of a 32-bit embedded
+web server.  Everything you see is powered by a SAMRH71 Microchip microcontroller.</p>
+
+<p>On the right you'll see the current status of the demo board.  For a quick
+example, click the LEDs to toggle the lights on the board.  Press the push
+buttons (except MCLR!) and you'll see the status update immediately.
+This examples uses AJAX techniques to provide real-time feedback.</p>
+
+<br>
+
+<div id="status" class="floating">
+	<div id="loading" style="display:none">Error:<br>Connection to demo board was lost.</div>
+	<div id="display">
+	<div class="title">SAMV71 motor control :</span></div><br>
+	<span class="parameter">Target Speed :</span><span id="mc_v71_target" class="data">0</span><br>
+	<span class="parameter">Measured speed :</span><span id="mc_v71_meas" class="data">0</span><br>
+	<span class="parameter">Potentiometer :</span><span id="mc_v71_pot" class="data">0</span><br>
+	<br>
+	<span class="title_cmd">Modify Motor command :</span>
+	<br>
+	<div class="motor_cmd">
+	<span class="parameter">Speed :</span><span class="speed_up" onclick="newAJAXCommand('cmd.cgi?mc_v71=1');"></span><span class="speed_down" onclick="newAJAXCommand('cmd.cgi?mc_v71=0');"></span><br>
+	</div>
+	</div>
+</div>
+
+<div id="status">
+	<div id="loading" style="display:none">Error:<br>Connection to demo board was lost.</div>
+	<div id="display">
+	<div class="title">SAMRH71 :</div><br>
+		<p>Buttons states :<br>
+		<span id="rh_btn0" class="button">&bull;</span>
+		<span id="rh_btn1" class="button">&bull;</span>
+		<span id="rh_btn2" class="button">&bull;</span></p><br>
+		<p><span class="title_cmd">LEDs [0..3] command:</span><span style="font-size:9px;font-weight:normal;padding-top:8px;text-indent:0px">(click to toggle)</span><br><br>
+		<span id="rh_led0" class="led" onclick="newAJAXCommand('cmd.cgi?rh_led=0');"></span> &nbsp;
+		<span id="rh_led1" class="led" onclick="newAJAXCommand('cmd.cgi?rh_led=1');"></span> &nbsp;
+	    <span id="rh_led2" class="led" onclick="newAJAXCommand('cmd.cgi?rh_led=2');"></span> &nbsp;
+		<span id="rh_led3" class="led" onclick="newAJAXCommand('cmd.cgi?rh_led=3');"></span> &nbsp;
+		</p>
+	</div>
+</div>
+
+<br>
+
+<div id="status" class="floating">
+	<div id="loading" style="display:none">Error:<br>Connection to demo board was lost.</div>
+	<div id="display">
+	<div class="title">ATmega64M1 motor control :</div><br>
+	<span class="parameter">Target Speed : </span><span id="mc_64_target" class="data">0</span><br>
+	<span class="parameter">Measured speed : </span><span id="mc_64_meas" class="data">0</span><br>
+	<span class="parameter">Direction : </span><span id="mc_64_dir" class="data">0</span><br>
+	<span class="parameter">Potentiometer : </span><span id="mc_64_pot" class="data">0</span><br>
+	<br>
+	<span class="title_cmd">Modify Motor command :</span>
+	<div class="motor_cmd">
+	<span class="parameter">Speed :</span><span class="speed_up" onclick="newAJAXCommand('cmd.cgi?mc_64=1');"></span><span class="speed_down" onclick="newAJAXCommand('cmd.cgi?mc_64=0');"></span><br>
+	<span class="parameter">Direction :</span><span class="direction" onclick="newAJAXCommand('cmd.cgi?mc_64=2');"></span><br>
+	</div>
+	</div>
+</div>
+
+<div id="status">
+	<div id="loading" style="display:none">Error:<br>Connection to demo board was lost.</div>
+	<div id="display">
+	<div class="title">ATmega64M1 sensor :</div><br>
+		<p>Buttons states:<br>
+		<span id="s_btn7" class="button">&bull;</span>
+		<span id="s_btn6" class="button">&bull;</span>
+		<span id="s_btn5" class="button">&bull;</span>
+		<span id="s_btn4" class="button">&bull;</span>
+		<span id="s_btn3" class="button">&bull;</span>
+		<span id="s_btn2" class="button">&bull;</span>
+		<span id="s_btn1" class="button">&bull;</span>
+		<span id="s_btn0" class="button">&bull;</span></p>
+		<br>
+		<p><span class="title_cmd">LEDs [7..0]: command:</span><span style="font-size:9px;font-weight:normal;padding-top:8px;text-indent:0px">(click to toggle)</span><br><br>
+		<span id="s_led7" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=7');"></span> &nbsp;
+		<span id="s_led6" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=6');"></span> &nbsp;
+	    <span id="s_led5" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=5');"></span> &nbsp;
+		<span id="s_led4" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=4');"></span> &nbsp;
+		<span id="s_led3" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=3');"></span> &nbsp;
+		<span id="s_led2" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=2');"></span> &nbsp;
+		<span id="s_led1" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=1');"></span> &nbsp;
+		<span id="s_led0" class="led" onclick="newAJAXCommand('cmd.cgi?s_led=0');"></span> &nbsp;
+		</p>
+	</div>
+</div>
+
+</div>
+
+<script type="text/javascript">
+<!--
+// Parses the xmlResponse from status.xml and updates the status box
+function updateStatus(xmlData) {
+	var mainstat = document.getElementById('display').style.display;
+	var loadstat = document.getElementById('loading').style.display;
+
+	// Check if a timeout occurred
+	if(!xmlData)
+	{
+		mainstat = 'none';
+		loadstat = 'inline';
+		return;
+	}
+
+	// Make sure we're displaying the status display
+	mainstat = 'inline';
+	loadstat = 'none';
+
+	// Loop over all the RH LEDs
+	for(i = 0; i < 8; i++)
+	{
+		try {
+			document.getElementById('rh_led' + i).style.backgroundPosition = (getXMLValue(xmlData, 'rh_led' + i) == '1') ? '22px' : '0px';
+		} catch(err) { }
+	}
+
+	// Loop over all the RH buttons
+	for(i = 0; i < 3; i++)
+		{
+		try {
+			document.getElementById('rh_btn' + i).style.color = (getXMLValue(xmlData, 'rh_btn' + i) == 'up') ? '#ddd' : '#d00';
+		} catch(err) { }
+	}
+
+	// Loop over all the Sensor LEDs
+	for(i = 0; i < 8; i++)
+	{
+		try {
+			document.getElementById('s_led' + i).style.backgroundPosition = (getXMLValue(xmlData, 's_led' + i) == '1') ? '22px' : '0px';
+		} catch(err) { }
+	}
+
+	// Loop over all the Sensor buttons
+	for(i = 0; i < 8; i++)
+	{
+		try {
+			document.getElementById('s_btn' + i).style.color = (getXMLValue(xmlData, 's_btn' + i) == 'up') ? '#ddd' : '#d00';
+		} catch(err) { }
+	}
+	
+	try {
+		// Update ATmega64M1 motor speed target:
+		document.getElementById('mc_64_target').innerHTML = getXMLValue(xmlData, 'mc_64_target');
+		// Update ATmega64M1 motor speed measured:
+		document.getElementById('mc_64_meas').innerHTML = getXMLValue(xmlData, 'mc_64_meas');
+		// Update ATmega64M1 motor direction:
+		document.getElementById('mc_64_dir').innerHTML = (getXMLValue(xmlData, 'mc_64_dir') == '0') ? 'clockwise' : 'counterclockwise';
+		// Update ATmega64M1 motor potentiometer:
+		document.getElementById('mc_64_pot').innerHTML = getXMLValue(xmlData, 'mc_64_pot');
+	} catch(err) { }
+
+	try {
+		// Update SAMV71 motor speed target:
+		document.getElementById('mc_v71_target').innerHTML = getXMLValue(xmlData, 'mc_v71_target');
+		// Update SAMV71 motor speed measured:
+		document.getElementById('mc_v71_meas').innerHTML = getXMLValue(xmlData, 'mc_v71_meas');
+		// Update SAMV71 motor potentiometer:
+		document.getElementById('mc_v71_pot').innerHTML = getXMLValue(xmlData, 'mc_v71_pot');
+	} catch(err) { }
+}
+setInterval(function() {newAJAXCommand('status.xml', updateStatus, false);}, 250);
+//-->
+</script>
+
+<script type="text/javascript">
+<!--
+document.getElementById('hello').innerHTML = "~hellomsg~";
+//-->
+</script>
+<!--#include file="footer.htm" -->

@@ -4,9 +4,8 @@
 
 ## CAN and Motor Control Demo Examples v1.0.0
 ### New Features
-- **New example** - <fill>.
+- **New example** : Add CAN network and motor control demo project for SAMRH71F20-EK and SAMV71RT nodes.
 
 ### Known Issues
-
-
+- The SAMRH71F20-EK project uses an advanced version of Harmony NET repository. It is not possible  to regenerate the code using the currently released version.
 
